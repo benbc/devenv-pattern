@@ -1,0 +1,2 @@
+sudo puppet apply devenv.pp
+bundle install
