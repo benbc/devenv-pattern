@@ -1,0 +1,4 @@
+# -*- mode: shell-script -*-
+
+SSH_USERNAME=<your-username>
+SSH_PASSWORD=<your-password>

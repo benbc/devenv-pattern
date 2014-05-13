@@ -1,2 +1,19 @@
-sudo puppet apply devenv.pp
-bundle install
+# -*- mode: shell-script -*-
+
+if [ -f ./devenv.local ]; then
+    . ./devenv.local
+    export SSH_USERNAME
+    export SSH_PASSWORD
+
+    export SSH_SERVER=trout.example.com
+    export PATH=bin:${PATH}
+
+    if ! which ssh >/dev/null; then
+        sudo apt-get install openssh-client
+    fi
+    if ! which sshpass >/dev/null; then
+        sudo apt-get install sshpass
+    fi
+else
+    echo "ERROR: can't find devenv.local"
+fi
